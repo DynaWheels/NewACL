@@ -22,3 +22,4 @@
     gitlab_user_name: "Matthew Wheeler"
     gitlab_user_username: "MatthewWheeler"
     gitlab_user_password: "mattwheelz"
+    gitlab_helm_chart_version: "9.1.2"
