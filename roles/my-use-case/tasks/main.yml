@@ -16,4 +16,8 @@
     name: gitlab
   vars:
     gitlab_username: "WheelieDealie"
-    gitlab_namespace: "DaWheelest"
+    gitlab_namespace: "gitlab"
+    gitlab_user_email: "matthew.wheeler@dynatrace.test"
+    gitlab_user_name: "Matthew Wheeler"
+-   gitlab_user_username: "Wheelie"
+-   gitlab_user_password: "DaWheelest"
