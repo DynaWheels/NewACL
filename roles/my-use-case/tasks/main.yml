@@ -20,5 +20,5 @@
   vars:
     gitlab_user_email: "matthew.wheeler@dynatrace.test"
     gitlab_user_name: "Matthew Wheeler"
--   gitlab_user_username: "MatthewWheeler"
--   gitlab_user_password: "mattwheelz"
+    gitlab_user_username: "MatthewWheeler"
+    gitlab_user_password: "mattwheelz"
