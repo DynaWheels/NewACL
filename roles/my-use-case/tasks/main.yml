@@ -1,3 +1,18 @@
 ---
 - include_role:
     name: "k3s"
+- include_role:
+    name: dashboard
+  vars:
+    dashboard_user: "dynatrace"
+    dashboard_password: "dynatrace"
+    dashboard_namespace: "ace"
+- include_role:
+    name: dt-operator
+  vars:
+    operator_mode: "cloudNativeFullStack"  
+- include_role:
+    name: gitlab
+  vars:
+    gitlab_username: "WheelieDealie"
+    gitlab_namespace: "DaWheelest"
