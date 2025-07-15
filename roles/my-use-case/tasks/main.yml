@@ -14,3 +14,10 @@
     dt_operator_release: "v1.6.0"
 - include_role:
     name: gitlab
+    tasks_from: ensure-user
+  vars:
+    gitlab_helm_chart_version: "9.1.2"
+    gitlab_user_email: "matthew.wheeler@dynatrace.test"
+    gitlab_user_name: "Matthew Wheeler"
+-   gitlab_user_username: "MatthewWheeler"
+-   gitlab_user_password: "mattwheelz"
