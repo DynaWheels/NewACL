@@ -14,6 +14,8 @@
     dt_operator_release: "v1.6.0"
 - include_role:
     name: gitlab
+- include_role:
+    name: gitlab
     tasks_from: ensure-user
   vars:
     gitlab_user_email: "matthew.wheeler@dynatrace.test"
