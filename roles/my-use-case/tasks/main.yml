@@ -12,11 +12,3 @@
   vars:
     operator_mode: "cloudNativeFullStack"
     dt_operator_release: "v1.6.0"
-- include_role:
-    name: gitlab
-  vars:
-    gitlab_namespace: "gitlab"
-    gitlab_user_email: "matthew.wheeler@dynatrace.test"
-    gitlab_user_name: "Matthew Wheeler"
--   gitlab_user_username: "Wheelie"
--   gitlab_user_password: "DaWheelest"
