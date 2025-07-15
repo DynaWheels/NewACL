@@ -12,3 +12,5 @@
   vars:
     operator_mode: "cloudNativeFullStack"
     dt_operator_release: "v1.6.0"
+- include_role:
+    name: gitlab
