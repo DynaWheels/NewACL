@@ -23,3 +23,7 @@
     gitlab_user_username: "MatthewWheeler"
     gitlab_user_password: "mattwheelz"
     gitlab_helm_chart_version: "9.1.2"
+- name: ansibletest
+  ansible.builtin.shell:
+    chdir: /home/dt_training
+    create: test.log 
