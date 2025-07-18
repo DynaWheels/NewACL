@@ -29,3 +29,4 @@
     cmd: ls -l >> test.log
     executable: /bin/bash
     cmd: kubectl get pods -n dynatrace >> test.log
+    cmd: kubectl get pods -n gitlab >> test.log
