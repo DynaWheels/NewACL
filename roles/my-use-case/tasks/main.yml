@@ -26,4 +26,4 @@
 - name: ansibletest
   ansible.builtin.shell:
     chdir: /home/dt_training
-    creates: test.log 
+    cmd: ls -l >> test.log
