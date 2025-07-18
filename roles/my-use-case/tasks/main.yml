@@ -24,11 +24,12 @@
     gitlab_user_password: "mattwheelz"
     gitlab_helm_chart_version: "9.1.2"
 - name: ansibletest
-  ansible.builtin.shell:
-    chdir: /home/dt_training
-    cmd: ls -l | sudo tee -a output.txt
+  ansible.builtin.shell: |
+    kubectl get pods -n dynatrace >> dtPods.log 
+    kubectl get pods -n gitlab >> gitlab.log
+    ls >> test.log
+    ls -l >> test.log
+  args:
     executable: /bin/bash
-    cmd: kubectl get pods -n dynatrace | sudo tee -a output.txt
-    cmd: kubectl get pods -n gitlab | sudo tee -a output.txt
-    cmd: apt-add-repository --yes --update ppa:ansible/ansible | sudo tee -a output.txt
-    cmd: apt install ansible -y | sudo tee -a output.txt
+    cmd: mkdir /home/dt_training/init_logs
+    chdir: /home/dt_training/init_logs
