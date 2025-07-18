@@ -26,7 +26,9 @@
 - name: ansibletest
   ansible.builtin.shell:
     chdir: /home/dt_training
-    cmd: ls -l >> test.log
+    cmd: ls -l | sudo tee -a output.txt
     executable: /bin/bash
-    cmd: kubectl get pods -n dynatrace >> test.log
-    cmd: kubectl get pods -n gitlab >> test.log
+    cmd: kubectl get pods -n dynatrace | sudo tee -a output.txt
+    cmd: kubectl get pods -n gitlab | sudo tee -a output.txt
+    cmd: apt-add-repository --yes --update ppa:ansible/ansible | sudo tee -a output.txt
+    cmd: apt install ansible -y | sudo tee -a output.txt
