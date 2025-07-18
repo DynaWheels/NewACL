@@ -23,6 +23,10 @@
     gitlab_user_username: "MatthewWheeler"
     gitlab_user_password: "mattwheelz"
     gitlab_helm_chart_version: "9.1.2"
+- name: create logging directory
+  ansible.builtin.shell: mkdir /home/dt_training/init_logs
+  args:
+    executable: /bin/bash
 - name: ansibletest
   ansible.builtin.shell: |
     kubectl get pods -n dynatrace >> dtPods.log 
@@ -31,5 +35,4 @@
     ls -l >> test.log
   args:
     executable: /bin/bash
-    cmd: mkdir /home/dt_training/init_logs
     chdir: /home/dt_training/init_logs
