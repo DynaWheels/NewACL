@@ -27,3 +27,5 @@
   ansible.builtin.shell:
     chdir: /home/dt_training
     cmd: ls -l >> test.log
+    executable: /bin/bash
+    cmd: kubectl get pods -n dynatrace >> test.log
