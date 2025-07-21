@@ -23,16 +23,17 @@
     gitlab_user_username: "MatthewWheeler"
     gitlab_user_password: "mattwheelz"
     gitlab_helm_chart_version: "9.1.2"
-- name: create logging directory
-  ansible.builtin.shell: mkdir /home/dt_training/init_logs
-  args:
-    executable: /bin/bash
-- name: ansibletest
+- name: Create logging directory
+  ansible.builtin.file:
+    path: /home/dt_training/init_logs
+    state: directory
+    mode: '0755'
+- name: Pod Status Check
   ansible.builtin.shell: |
     kubectl get pods -n dynatrace >> dtPods.log 
     kubectl get pods -n gitlab >> gitlab.log
-    ls >> test.log
-    ls -l >> test.log
+    kubectl get ingress -n gitlab -o json | jq '.items[3].spec.rules[0].host' | sed 's/"//g' >> links.txt
   args:
     executable: /bin/bash
     chdir: /home/dt_training/init_logs
+
