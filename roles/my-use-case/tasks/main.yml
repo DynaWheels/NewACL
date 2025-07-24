@@ -20,8 +20,8 @@
     dest: /home/dt_training/repos/orig
 - name: Get BitBucket Repo
   ansible.builtin.git:
-    repo: 'https://github.com/acl-sockshop/carts.git'
-    dest: /home/dt_training/repos/orig
+    repo: 'https://bitbucket.lab.dynatrace.org/scm/pdp/licensingcheatsheet.git'
+    dest: /home/dt_training/repos/local
 - include_role:
     name: "k3s"
 - include_role:
