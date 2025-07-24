@@ -46,8 +46,6 @@
     gitlab_user_username: "ACLUser2.0"
     gitlab_user_password: "acluser2.0"
     gitlab_helm_chart_version: "9.1.2"
-- include_role:
-    name: dt-edge-connect
 - name: Create logging directory
   ansible.builtin.file:
     path: /home/dt_training/init_logs
