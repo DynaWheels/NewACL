@@ -22,7 +22,6 @@
   ansible.builtin.git:
     repo: 'https://github.com/acl-sockshop/carts.git'
     dest: /home/dt_training/repos/orig
-    
 - include_role:
     name: "k3s"
 - include_role:
