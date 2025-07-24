@@ -18,10 +18,6 @@
   ansible.builtin.git:
     repo: 'https://github.com/acl-sockshop/carts.git'
     dest: /home/dt_training/repos/orig
-- name: Get BitBucket Repo
-  ansible.builtin.git:
-    repo: 'https://bitbucket.lab.dynatrace.org/scm/pdp/licensingcheatsheet.git'
-    dest: /home/dt_training/repos/local
 - include_role:
     name: "k3s"
 - include_role:
@@ -44,7 +40,7 @@
     gitlab_user_email: "matthew.wheeler@dynatrace.test"
     gitlab_user_name: "ACL User"
     gitlab_user_username: "ACLUser2.0"
-    gitlab_user_password: "acluser2.0"
+    gitlab_user_password: "aclPDP2.0"
     gitlab_helm_chart_version: "9.1.2"
 - name: Create logging directory
   ansible.builtin.file:
