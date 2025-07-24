@@ -14,10 +14,15 @@
     path: /home/dt_training/repos/orig
     state: directory
     mode: '0755'
+- name: Carts Directory for Repo
+  ansible.builtin.file:
+    path: /home/dt_training/repos/orig/carts
+    state: directory
+    mode: '0755'
 - name: GetGithub Repo
   ansible.builtin.git:
     repo: 'https://github.com/acl-sockshop/carts.git'
-    dest: /home/dt_training/repos/orig
+    dest: /home/dt_training/repos/orig/carts
 - include_role:
     name: "k3s"
 - include_role:
