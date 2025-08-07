@@ -1,29 +1,28 @@
 ---
+# Create Directories to clone and then copy repositories
 - name: Create Repo Directory
   ansible.builtin.file:
-    path: /home/dt_training/repos
+    path: /home/{{ ace_box_user }}/repositories
     state: directory
     mode: '0755'
 - name: Local Directory for Repos
   ansible.builtin.file:
-    path: /home/dt_training/repos/local
+    path: /home/{{ ace_box_user }}/repositories/local
     state: directory
     mode: '0755'
 - name: Orig Directory for Repos
   ansible.builtin.file:
-    path: /home/dt_training/repos/orig
+    path: /home/{{ ace_box_user }}/repositories/orig
     state: directory
     mode: '0755'
-- name: Carts Directory for Repo
-  ansible.builtin.file:
-    path: /home/dt_training/repos/orig/carts
-    state: directory
-    mode: '0755'
-- name: GetGithub Repo
+- name: Get BitBucket Repo
   ansible.builtin.git:
-    repo: 'https://github.com/acl-sockshop/carts.git'
-    dest: /home/dt_training/repos/orig/carts
-- include_role:
+    repo: 'https://bitbucket.lab.dynatrace.org/scm/pdp/newaclsockshop.git'
+    dest: /home/{{ ace_box_user }}/repos/orig/
+    version: release/0.0.0
+
+# Add built in technologies
+- include_role: 
     name: "k3s"
 - include_role:
     name: dashboard
@@ -42,14 +41,17 @@
     name: gitlab
     tasks_from: ensure-user
   vars:
-    gitlab_user_email: "matthew.wheeler@dynatrace.test"
+    gitlab_user_email: "acl.user@dynatrace.test"
     gitlab_user_name: "ACL User"
     gitlab_user_username: "ACLUser2.0"
     gitlab_user_password: "aclPDP2.0"
     gitlab_helm_chart_version: "9.1.2"
+
+
+# Logging Tests
 - name: Create logging directory
   ansible.builtin.file:
-    path: /home/dt_training/init_logs
+    path: /home/{{ ace_box_user }}/init_logs
     state: directory
     mode: '0755'
 - name: Pod Status Check
@@ -59,6 +61,6 @@
     kubectl get ingress -n gitlab -o json | jq '.items[3].spec.rules[0].host' | sed 's/"//g' >> links.txt
   args:
     executable: /bin/bash
-    chdir: /home/dt_training/init_logs
+    chdir: /home/{{ ace_box_user }}/init_logs
 
     
