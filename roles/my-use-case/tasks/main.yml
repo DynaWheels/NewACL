@@ -17,9 +17,8 @@
     mode: '0755'
 - name: Get BitBucket Repo
   ansible.builtin.git:
-    repo: 'https://bitbucket.lab.dynatrace.org/scm/pdp/newaclsockshop.git'
+    repo: 'https://github.com/DynaWheels/Perform25-BusinessAnalytics.git'
     dest: /home/{{ ace_box_user }}/repos/orig/
-    version: release/0.0.0
 
 # Add built in technologies
 - include_role: 
